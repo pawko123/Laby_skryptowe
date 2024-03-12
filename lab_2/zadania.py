@@ -21,29 +21,42 @@ If the implementation is easy to explain, it may be a
 good idea.
 Namespaces are one honking great idea—let’s do more
 of those!"""
+
+
 def zad1():
     print("Hello world")
+
+
 def zad2():
     print(zen_pythona)
-def zad3(a,b):
+
+
+def zad3(a, b):
     print(f'{a+b=}')
     print(f'{a-b=}')
     print(f'{a*b=}')
     print(f'{a/b=}')
+    print(f'{a**b=}')
+
+
 def zad4():
-    a = [x for x in range(0,10)]
-    b = [complex(0,x) for x in range(0,10)]
-    c = [x/10 for x in range(0,10)]
-    print(a)
-    print(b)
-    print(c)
+    a = [x for x in range(10)]
+    b = [complex(x, 1) for x in range(10)]
+    c = [x / 10 for x in range(10)]
+    print(a+b+c)
+
+
 def zad5():
     print(zen_pythona.upper())
+
+
 def zad6():
     print(zen_pythona.title())
 
+
 def zad7():
     print(zen_pythona.replace(" ", "").replace("\t", "").replace("\n", ""))
+
 
 def zad8():
     liczba = 45

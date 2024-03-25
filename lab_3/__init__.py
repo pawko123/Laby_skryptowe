@@ -4,3 +4,4 @@ from lab_3 import zadania
 #zadania.zad7()
 #zadania.zad8()
 #zadania.zad9()
+#zadania.zad10()

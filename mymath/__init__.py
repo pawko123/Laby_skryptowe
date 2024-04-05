@@ -11,3 +11,5 @@ def show_author():
 
 def show_version():
     print(_version)
+#show_version()
+#show_author()

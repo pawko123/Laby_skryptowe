@@ -1,8 +1,4 @@
 import importlib
-
-import lab_2
-import lab_3
-
 import mymath
 
 wektor=[]
@@ -12,6 +8,4 @@ while True:
         break
     wektor.append(int(liczba))
     importlib.reload(mymath.myalgebra)
-print(mymath.myalgebra.dodaj(wektor,wektor))
-print(mymath.myalgebra.odejmij(wektor,wektor))
-print(mymath.myalgebra.pomnoz(wektor,wektor))
+print(wektor)

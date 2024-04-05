@@ -3,7 +3,7 @@ Ile cie trzeba cenic, ten tylko sie dowie,
 Kto cie stracil. Dzis pieknosc twa w calej ozdobie
 Widze i opisuje, bo tesknie po tobie.
 
-Panno Świeta, co Jasnej bronisz Czestochowy
+Panno Swieta, co Jasnej bronisz Czestochowy
 I w Ostrej swiecisz Bramie! Ty, co grod zamkowy
 Nowogrodzki ochraniasz z jego wiernym ludem!
 Jak mnie dziecko do zdrowia powrocilas cudem
@@ -63,7 +63,16 @@ def zad4():
 
 
 # zad4()
-
+#zad5
+def zad5():
+    inw1=""
+    inw2=""
+    for x in lista: inw1+=x.upper()
+    for x in lista: inw2+=x.lower()
+    print(inw2==inw1)
+    print(inw2 > inw1)
+    print(inw2 < inw1)
+#zad5()
 # zad6
 def zad6():
     print('\n')
@@ -82,7 +91,28 @@ def zad7():
 
 
 # zad7()
+#zad8
+def zad8():
+    kopia = inw.replace('a','{}')
+    alfabet = 'abcdefghijklmnopqrstuvwxyz'
+    acount=inw.count('a')
+    print(kopia.format(*[alfabet[x%len(alfabet)] for x in range(acount)]))
+#zad8()
+#zad9
+def zad9():
+    index=1
+    kopia = ""
+    slownik={}
+    for znak in range(len(inw)):
+        if(inw[znak]=='w'):
+            kopia += "{w"+str(index)+"}"
+            slownik[f'w{index}']=f'0x{format(index,"04X")}'
+            index+=1
+        else:
+            kopia+=inw[znak]
 
+    print(kopia.format(**slownik))
+#zad9()
 # zad10
 def zad10():
     formatka = """

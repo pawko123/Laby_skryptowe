@@ -1,35 +1,23 @@
+# zad1
 inw = """Litwo! Ojczyzno moja! ty jestes jak zdrowie.
 Ile cie trzeba cenic, ten tylko sie dowie,
 Kto cie stracil. Dzis pieknosc twa w calej ozdobie
-Widze i opisuje, bo tesknie po tobie.
+Widze i opisuje, bo tesknie po tobie."""
 
-Panno Swieta, co Jasnej bronisz Czestochowy
-I w Ostrej swiecisz Bramie! Ty, co grod zamkowy
-Nowogrodzki ochraniasz z jego wiernym ludem!
-Jak mnie dziecko do zdrowia powrocilas cudem
-(Gdy od placzacej matki pod Twoje opieke
-Ofiarowany, martwa podnioslem powieke
-I zaraz moglem pieszo do Twych swiatyn progu
-Isc za wrocone zycie podziekowac Bogu),
-Tak nas powrocisz cudem na Ojczyzny lono.
-Tymczasem przenos moje dusze uteskniona
-Do tych pagorkow lesnych, do tych lak zielonych,
-Szeroko nad blekitnym Niemnem rozciagnionych;
-Do tych pol malowanych zbozem rozmaitem,
-Wyzlacanych pszenica, posrebrzanych zytem;
-Gdzie bursztynowy swierzop, gryka jak snieg biala,
-Gdzie panienskim rumiencem dziecielina pala,
-A wszystko przepasane, jakby wstega, miedza
-Zielona, na niej z rzadka ciche grusze siedza."""
+
 # zad2
-inw_plik = open("inwokacja.txt", 'r')
-# print(inw_plik.readline())
-inw_plik.close()
+def zad2():
+    inw_plik = open("inwokacja.txt", 'r')
+    print(inw_plik.readline())
+    inw_plik.close()
+
+
+# zad2()
 # zad3
 inw_plik = open("inwokacja.txt", 'r')
-lista = [x.replace('\n', '') for x in inw_plik.readlines()]
+lista = [x.replace("\n", "") for x in inw_plik.readlines()]
 polaczona_lista = '_'.join(lista)
-# print(polaczona_lista)
+#print(polaczona_lista)
 inw_plik.close()
 
 
@@ -41,7 +29,7 @@ def zad4():
     print("\nWielkimi literami:")
     for x in lista: print(x.upper())
 
-    print("\nZ duzych liter:")
+    print("\nKazdy wers z duzej")
     for x in lista: print(x.capitalize())
 
     print("\nCo drugi wers z wielkiej litery, co drugi z malej:")
@@ -62,20 +50,24 @@ def zad4():
     for x in lista[::-1]: print(x)
 
 
-# zad4()
-#zad5
+#zad4()
+# zad5
 def zad5():
-    inw1=""
-    inw2=""
-    for x in lista: inw1+=x.upper()
-    for x in lista: inw2+=x.lower()
-    print(inw2==inw1)
+    inw1,inw2,inw3,inw4 = "","","",""
+    for x in lista: inw1 += x.upper()
+    for x in lista: inw2 += x.lower()
+    for x in lista: inw3 += x.capitalize()
+    for x in lista[::-1]: inw4 += x
+    print(inw2 == inw1)
     print(inw2 > inw1)
     print(inw2 < inw1)
-#zad5()
+    print(inw3 == inw3)
+    print(inw4>inw3)
+    print(inw2>inw3)
+
+zad5()
 # zad6
 def zad6():
-    print('\n')
     print(inw.replace(' ', ''))
 
 
@@ -91,41 +83,43 @@ def zad7():
 
 
 # zad7()
-#zad8
+# zad8
 def zad8():
-    kopia = inw.replace('a','{}')
+    kopia = inw.replace('a', '{}')
     alfabet = 'abcdefghijklmnopqrstuvwxyz'
-    acount=inw.count('a')
-    print(kopia.format(*[alfabet[x%len(alfabet)] for x in range(acount)]))
-#zad8()
-#zad9
+    acount = inw.count('a')
+    print(kopia.format(*[alfabet[x % len(alfabet)] for x in range(acount)]))
+
+
+# zad8()
+# zad9
 def zad9():
-    index=1
+    index = 1
     kopia = ""
-    slownik={}
+    slownik = {}
     for znak in range(len(inw)):
-        if(inw[znak]=='w'):
-            kopia += "{w"+str(index)+"}"
-            slownik[f'w{index}']=f'0x{format(index,"04X")}'
-            index+=1
+        if inw[znak] == 'w':
+            kopia += "{w" + str(index) + "}"
+            slownik[f'w{index}'] = f'0x{format(index, "04X")}'
+            index += 1
         else:
-            kopia+=inw[znak]
+            kopia += inw[znak]
 
     print(kopia.format(**slownik))
-#zad9()
+
+
+# zad9()
 # zad10
 def zad10():
-    formatka = """
-Witaj {} {},
+    formatka = """Witaj {imie} {nazwisko},
 Dziękujemy za złożenie zamowienia w naszym sklepie internetowym. Poniżej znajduje się lista zamówionych produktow:
     
-{}
+{lista_produktow}
     
-SUMA: {} zł
+SUMA: {sumacalkowita} zł
     
 Pozdrawiamy,
-Zespół TwojFantastycznySklep
-"""
+Zespół TwojFantastycznySklep"""
     produkty = [
         {"nazwa": "Ksiazka", "ilosc": 1, "cena": 100},
         {"nazwa": "Zeszyt", "ilosc": 2, "cena": 8}
@@ -136,12 +130,13 @@ Zespół TwojFantastycznySklep
     def listing_produktow(produkty):
         listing = ""
         for produkt in produkty:
-            listing += "- {}, szt {}, cena {} zł,  {} zł\n".format(produkt["nazwa"], produkt["ilosc"], produkt["cena"],
-                                                                   produkt["cena"] * produkt["ilosc"])
+            listing += "- {nazwa}, szt {ilosc}, cena {cenazaszt} zł,  {lacznasuma} zł\n".format(nazwa=produkt["nazwa"],
+            ilosc=produkt["ilosc"], cenazaszt=produkt["cena"], lacznasuma=produkt["cena"] * produkt["ilosc"])
         return listing
 
-    print(formatka.format(zamowienie["imie"], zamowienie["nazwisko"], listing_produktow(zamowienie["produkty"]),
-                          zamowienie["cena_calosciowa"]))
+    print(formatka.format(imie=zamowienie["imie"], nazwisko=zamowienie["nazwisko"],
+                          lista_produktow=listing_produktow(zamowienie["produkty"]),
+                          sumacalkowita=zamowienie["cena_calosciowa"]))
 
 
 # zad10()
@@ -160,8 +155,7 @@ Specjalne przypadki nie są na tyle specjalne, aby łamać reguły.
 Chociaż praktyczność pokona czystość.
 Błędy nigdy nie powinny pozostać niezauważone.
 Mimo że milczenie jest akceptowane, nie zgadzaj się na nie.
-W razie wątpliwości, zastosuj zasadę jednoznaczności.
-    """
+W razie wątpliwości, zastosuj zasadę jednoznaczności."""
     plik = open('plik.txt', 'w')
     plik.write(tekst)
 
@@ -203,22 +197,21 @@ def zad14():
     plik.close()
 
 
-#zad14()
+# zad14()
 # zad15
 def zad15():
     nazwa_pliku = input("Podaj nazwę pliku: ")
     try:
         # Otwarcie pliku
         plik = open(nazwa_pliku, "r")
-        linie=plik.readlines()
-        index=int(input("Podaj ktora linie tekstu wyswietlic:"))
+        linie = plik.readlines()
+        index = int(input("Podaj ktora linie tekstu wyswietlic:"))
         try:
-            print(linie[index-1])
+            print(linie[index - 1])
         except IndexError:
             print("Linijka z poza zakresu")
         plik.close()
     except FileNotFoundError:
         print(f"Plik '{nazwa_pliku}' nie istnieje.")
 
-
-#zad15()
+# zad15()

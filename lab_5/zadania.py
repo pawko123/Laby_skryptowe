@@ -65,7 +65,7 @@ def zad5():
     print(inw4>inw3)
     print(inw2>inw3)
 
-zad5()
+#zad5()
 # zad6
 def zad6():
     print(inw.replace(' ', ''))

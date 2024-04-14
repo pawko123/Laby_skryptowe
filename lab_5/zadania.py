@@ -69,9 +69,7 @@ def zad5():
 # zad6
 def zad6():
     print(inw.replace(' ', ''))
-
-
-# zad6()
+#zad6()
 
 # zad7
 def zad7():
@@ -80,18 +78,14 @@ def zad7():
         plik = open(f'slowa/slowonr_{x + 1}.txt', 'w')
         plik.write(slowa[x])
         plik.close()
-
-
-# zad7()
+#zad7()
 # zad8
 def zad8():
     kopia = inw.replace('a', '{}')
     alfabet = 'abcdefghijklmnopqrstuvwxyz'
     acount = inw.count('a')
     print(kopia.format(*[alfabet[x % len(alfabet)] for x in range(acount)]))
-
-
-# zad8()
+#zad8()
 # zad9
 def zad9():
     index = 1
@@ -106,16 +100,13 @@ def zad9():
             kopia += inw[znak]
 
     print(kopia.format(**slownik))
-
-
-# zad9()
+#zad9()
 # zad10
 def zad10():
     formatka = """Witaj {imie} {nazwisko},
 Dziękujemy za złożenie zamowienia w naszym sklepie internetowym. Poniżej znajduje się lista zamówionych produktow:
     
 {lista_produktow}
-    
 SUMA: {sumacalkowita} zł
     
 Pozdrawiamy,
@@ -137,9 +128,7 @@ Zespół TwojFantastycznySklep"""
     print(formatka.format(imie=zamowienie["imie"], nazwisko=zamowienie["nazwisko"],
                           lista_produktow=listing_produktow(zamowienie["produkty"]),
                           sumacalkowita=zamowienie["cena_calosciowa"]))
-
-
-# zad10()
+#zad10()
 
 # zad11
 def zad11():
@@ -158,9 +147,7 @@ Mimo że milczenie jest akceptowane, nie zgadzaj się na nie.
 W razie wątpliwości, zastosuj zasadę jednoznaczności."""
     plik = open('plik.txt', 'w')
     plik.write(tekst)
-
-
-# zad11()
+#zad11()
 
 # zad12
 def zad12():
@@ -169,9 +156,7 @@ def zad12():
     print(f"Zawartość pliku '{nazwa_pliku}':")
     print(plik.read())
     plik.close()
-
-
-# zad12()
+#zad12()
 # zad13
 def zad13():
     nazwa_pliku = input("Podaj nazwę pliku: ")
@@ -183,9 +168,7 @@ def zad13():
         plik.close()
     except FileNotFoundError:
         print(f"Plik '{nazwa_pliku}' nie istnieje.")
-
-
-# zad13()
+#zad13()
 # zad14
 def zad14():
     plik = open('plik.txt', "r")
@@ -195,9 +178,7 @@ def zad14():
     plik = open(nazwa_pliku2, "w")
     plik.writelines(sekwencja)
     plik.close()
-
-
-# zad14()
+#zad14()
 # zad15
 def zad15():
     nazwa_pliku = input("Podaj nazwę pliku: ")
@@ -214,4 +195,4 @@ def zad15():
     except FileNotFoundError:
         print(f"Plik '{nazwa_pliku}' nie istnieje.")
 
-# zad15()
+zad15()

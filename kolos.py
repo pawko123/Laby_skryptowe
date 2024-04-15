@@ -41,20 +41,14 @@ while i<6:
 macierz=[[(i*j)/(2*i) if i!=0 else 0 for j in range(5)] for i in range(5)]
 print(macierz)
 #type() - zwraca typ oobiektu np.
-# x = 3
-# type(x)
+x = 3
+type(x)
 #len() - zwraca długość obiektu np len(x)
 #upper() - zmienia wszystkie znaki na duże np. napis.upper()
 #replace() - zamienia konkretny ciag znakow na inny. x.replace(" ","") usunie z x wszystkie spacje
-input=input("Podaj nazwe pliku: ")
-try:
-    plik=open(input)
-    print(plik.read())
-except FileNotFoundError:
-    print("Nie znaleziono")
-finally:
-    plik.close()
+
 napis="test%%%   test"
-print(napis[::-1])
-print(napis.replace("%"," "))
-print(napis.replace(" ",""))
+a=napis[::-1]
+b=napis.replace("%"," ")
+c=napis.replace(" ","")
+print(a,b,c)

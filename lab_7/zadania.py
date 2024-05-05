@@ -1,4 +1,16 @@
 import ast
+class A:
+    def method(self):
+        print("A")
+class B(A):
+    pass
+class C(A):
+    def method(self):
+        print("C")
+class D(B,C):
+    pass
+d = D()
+#d.method()
 class Osoba:
     def __init__(self,name,last_name,age):
         self.name = name
@@ -13,40 +25,40 @@ class Osoba:
 o=Osoba("Jan","Kowalski",25)
 class Student(Osoba):
     def __init__(self,indexNr,imie,nazwisko,age):
-        super().__init__(imie,nazwisko,age)
+        Osoba.__init__(self,imie,nazwisko,age)
         self.indexNr = indexNr
     def getIndexNr(self):
         return self.indexNr
 s=Student(123,"Jan","Kowalski",25)
-print(s.getName(),s.getLastName(),s.getAge(),s.getIndexNr())
+#print(s.getName(),s.getLastName(),s.getAge(),s.getIndexNr())
 class Note:
     def __init__(self,slownik_ocen):
         self.oceny = slownik_ocen
 class Student2(Osoba):
-    def __init__(self,indexNr,oceny,imie=None,nazwisko=None,age=None):
-        super().__init__(imie,nazwisko,age)
+    def __init__(self,indexNr,oceny,imie,nazwisko,age):
+        Osoba.__init__(self,imie,nazwisko,age)
         self.indexNr = indexNr
         self.oceny = oceny
 oceny1=Note({"Matematyka":4,"Fizyka":3,"Informatyka":5,"Wf":4})
 oceny2=Note({"Matematyka":3,"Fizyka":3,"Informatyka":3,"Wf":5})
 s1=Student2(123,oceny1,"Jan","Kowalski",25)
 s2=Student2(124,oceny2,"Pawel","Laskarzewski",22)
-print(s1.oceny.oceny)
-print(s2.oceny.oceny)
+#print(s1.oceny.oceny)
+#print(s2.oceny.oceny)
 class Employee(Osoba):
     def __init__(self,salary,position,imie,nazwisko,age):
-        super().__init__(imie,nazwisko,age)
+        Osoba.__init__(self,imie,nazwisko,age)
         self.salary = salary
         self.position = position
 e=Employee(4000,"Junior Developer","Pawel","Laskarzewski",22)
-print(e.salary)
-print(e.position)
+#print(e.salary)
+#print(e.position)
 class WorkingStudent(Employee,Student2):
     def __init__(self,salary,position,oceny,nrindeksu,imie,nazwisko,age):
         Employee.__init__(self,salary,position,imie,nazwisko,age)
         Student2.__init__(self,nrindeksu,oceny,imie,nazwisko,age)
 WS=WorkingStudent(4000,"Junior Developer",oceny1,125,"Pawel","Laskarzewski",22)
-print(WS.salary,WS.position,WS.oceny.oceny,WS.name,WS.last_name,WS.age,WS.indexNr)
+#print(WS.salary,WS.position,WS.oceny.oceny,WS.name,WS.last_name,WS.age,WS.indexNr)
 class Group:
     def __init__(self,students):
         self.students = students
@@ -67,6 +79,7 @@ studenci=[
     s3
 ]
 grupa=Group(studenci)
+#print(grupa.students[1].getName())
 grupa.zapisz_do_pliku()
 def odczytaj_z_pliku():
     try:
@@ -88,7 +101,7 @@ def odczytaj_z_pliku():
 
 
 grupa2=odczytaj_z_pliku()
-print(grupa2.students[2].oceny.oceny)
+#print(grupa2.students[2].oceny.oceny)
 class BladOdczytu(Exception):
     def __init__(self, nazwa_pliku):
         self.nazwa_pliku = nazwa_pliku

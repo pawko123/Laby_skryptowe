@@ -1,4 +1,7 @@
 # -*- coding: UTF-8 -*-
+def zad1():
+    b=4+4
+#print(zad1())
 #zad5
 def zad5():
     def dodaj(a,b):
@@ -128,12 +131,11 @@ def zad10():
 #zad11
 def zad11():
     class Osoba:
-        _id=1
-        __wiek=25
-        def __init__(self,imie,nazwisko):
-            self.imie=imie
-            self.nazwisko=nazwisko
-    print(dir(Osoba))
+        def __init__(self,id,wiek):
+            self._id=id
+            self.__wiek=wiek
+    os=Osoba(1,22)
+    print(dir(os))
 #zad11()
 #zad12
 def zad12():
@@ -155,10 +157,10 @@ def zad12():
 def zad13():
     class Prostokat:
         def __init__(self, x=1, y=1, w=1, h=1):
-            self.x = x  # współrzędna x lewego górnego rogu
-            self.y = y  # współrzędna y lewego górnego rogu
-            self.w = w  # szerokość prostokąta
-            self.h = h  # wysokość prostokąta
+            self.x = x
+            self.y = y
+            self.w = w
+            self.h = h
     class Okno(Prostokat):
         def __init__(self, nazwa="okienko", kolor="czarny", x=1, y=1, w=1, h=1):
             super().__init__(x, y, w, h)
@@ -176,13 +178,13 @@ def zad14():
 
     class Student(Osoba):
         def __init__(self, nr_indeksu, oceny, imie, nazwisko):
-            super().__init__(imie, nazwisko)
+            Osoba.__init__(self,imie,nazwisko)
             self.nr_indeksu = nr_indeksu
             self.oceny = oceny
 
     class Pracownik(Osoba):
-        def __init__(self, stanowisko, wynagrodzenie,imie=None, nazwisko=None):
-            super().__init__(imie, nazwisko)
+        def __init__(self, stanowisko, wynagrodzenie,imie, nazwisko):
+            Osoba.__init__(self,imie, nazwisko)
             self.stanowisko = stanowisko
             self.wynagrodzenie = wynagrodzenie
 
